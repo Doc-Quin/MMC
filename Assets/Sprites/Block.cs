@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -6,14 +7,17 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    public ifWaving wavingScript;
+    public ifWaving wavingLeftScript;
+    public ifWaving wavingRightScript;
     public UISystem UIScript;
-    public GameObject playerWeapon;
+    public GameObject playerLeftWeapon;
+    public GameObject playerRightWeapon;
     public GameObject ec;
     public EnemyController ecScript;
     public GameObject fatherGO;
     public int directionAttribute;
     public int posType;
+    public String WeaponName;
 
     // Start is called before the first frame update
     void Start()
@@ -22,21 +26,23 @@ public class Block : MonoBehaviour
         ecScript = ec.GetComponent<EnemyController>();
         UIScript = ecScript.UIScript;
 
-        if(ecScript.currentWeapon != null){
-            playerWeapon = ecScript.currentWeapon;
+        if(ecScript.currentLeftWeapon != null){
+            playerLeftWeapon = ecScript.currentLeftWeapon;
 
-            if(playerWeapon.name.Equals("Sword") || playerWeapon.name.Equals("Wand") || playerWeapon.name.Equals("Flail") || playerWeapon.name.Equals("Dart")){
-                wavingScript = playerWeapon.GetComponent<ifWaving>();
-            }
-
-            if(playerWeapon.name.Equals("Pistol")){
-
-            }
-
-            if(playerWeapon.name.Equals("Dart")){
-            
+            if(playerLeftWeapon.name.Equals("Sword") || playerLeftWeapon.name.Equals("Wand") || playerLeftWeapon.name.Equals("Flail") || playerLeftWeapon.name.Equals("Dart")){
+                wavingLeftScript = playerLeftWeapon.GetComponent<ifWaving>();
             }
         }
+
+        if(ecScript.currentRightWeapon != null){
+            playerRightWeapon = ecScript.currentRightWeapon;
+
+            if(playerRightWeapon.name.Equals("Sword") || playerRightWeapon.name.Equals("Wand") || playerRightWeapon.name.Equals("Flail") || playerRightWeapon.name.Equals("Dart")){
+                wavingRightScript = playerRightWeapon.GetComponent<ifWaving>();
+            }
+        }
+
+        WeaponName = playerLeftWeapon.name;
     }
 
     // Update is called once per frame
@@ -67,13 +73,20 @@ public class Block : MonoBehaviour
 
     private void HandleCollision(int colliderType, Collider other)
     {
+        ifWaving wavingScript = null;
+        if(wavingLeftScript != null && wavingLeftScript.inAttacking){
+            wavingScript = wavingLeftScript;
+
+        }else if(wavingRightScript != null && wavingRightScript.inAttacking){
+            wavingScript = wavingRightScript;
+        }
         //Collider type: 0 - body, 1 - flail head, 2 - dart body
         if (wavingScript != null && wavingScript.inAttacking)
         {
             switch(directionAttribute){
                 case 0:{
                     if (wavingScript.attackUp){
-                        if(playerWeapon.name.Equals("Wand") || playerWeapon.name.Equals("Flail")){
+                        if(WeaponName.Equals("Wand") || WeaponName.Equals("Flail")){
                             UIScript.setEnergyPoint(UIScript.energyPoint + 1, UIScript.maxEnergy);
                             UIScript.setDynamicEnergySlider(UIScript.energyPoint, UIScript.maxEnergy);
                         }
@@ -88,7 +101,7 @@ public class Block : MonoBehaviour
 
                 case 1:{
                     if (wavingScript.attackDown){
-                        if(playerWeapon.name.Equals("Wand") || playerWeapon.name.Equals("Flail")){
+                        if(WeaponName.Equals("Wand") || WeaponName.Equals("Flail")){
                             UIScript.setEnergyPoint(UIScript.energyPoint + 1, UIScript.maxEnergy);
                             UIScript.setDynamicEnergySlider(UIScript.energyPoint, UIScript.maxEnergy);
                         }
@@ -103,7 +116,7 @@ public class Block : MonoBehaviour
 
                 case 2:{
                     if (wavingScript.attackLeft){
-                        if(playerWeapon.name.Equals("Wand") || playerWeapon.name.Equals("Flail")){
+                        if(WeaponName.Equals("Wand") || WeaponName.Equals("Flail")){
                             UIScript.setEnergyPoint(UIScript.energyPoint + 1, UIScript.maxEnergy);
                             UIScript.setDynamicEnergySlider(UIScript.energyPoint, UIScript.maxEnergy);
                         }
@@ -118,7 +131,7 @@ public class Block : MonoBehaviour
                 
                 case 3:{
                     if (wavingScript.attackRight){
-                        if(playerWeapon.name.Equals("Wand") || playerWeapon.name.Equals("Flail")){
+                        if(WeaponName.Equals("Wand") || WeaponName.Equals("Flail")){
                             UIScript.setEnergyPoint(UIScript.energyPoint + 1, UIScript.maxEnergy);
                             UIScript.setDynamicEnergySlider(UIScript.energyPoint, UIScript.maxEnergy);
                         }
@@ -140,9 +153,10 @@ public class Block : MonoBehaviour
         }
 
         if(colliderType == 2 && other.gameObject.tag.Equals("Dart")){
+            Debug.Log("Dart collided with " + other.gameObject.name);
             if(directionAttribute == other.GetComponent<DartSignal>().directionMessage){
-                UIScript.setEnergyPoint(UIScript.energyPoint + 1, UIScript.maxEnergy);
-                UIScript.setDynamicEnergySlider(UIScript.energyPoint, UIScript.maxEnergy);
+                UIScript.setScorePoint(UIScript.scorePoint + 1);
+                UIScript.setDynamicScore(UIScript.scorePoint);
                 Destroy(fatherGO);
             }
         }

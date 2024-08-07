@@ -113,15 +113,15 @@ public class DartSignal : MonoBehaviour
                 Vector3 directionToTarget = (focusObject.transform.position - transform.position).normalized;
 
                 // 逐渐调整飞镖的速度，以跟踪目标物体
-                Vector3 newVelocity = Vector3.Lerp(dartBody.velocity, directionToTarget * initialSpeed, Time.deltaTime * 2); // 加快插值速度
+                Vector3 newVelocity = Vector3.Lerp(dartBody.velocity, directionToTarget * initialSpeed, Time.deltaTime * 4); // Fast lerp speed.
                 dartBody.velocity = newVelocity;
             }else{
                 Vector3 directionToTarget = (XRController.transform.position + new Vector3(0, 0.5f, 3f) - transform.position).normalized;
-                Vector3 newVelocity = Vector3.Lerp(dartBody.velocity, directionToTarget * initialSpeed, Time.deltaTime * 2); // 加快插值速度
+                Vector3 newVelocity = Vector3.Lerp(dartBody.velocity, directionToTarget * initialSpeed, Time.deltaTime * 4); // Fast lerp speed.
                 dartBody.velocity = newVelocity;
                 if (transform.position.z >= 2)
                 {        
-                    Destroy(gameObject); // 销毁飞镖
+                    Destroy(gameObject); // Destory dart object when it goes out of the screen.
                 }
             }
         }

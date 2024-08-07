@@ -64,10 +64,10 @@ public class SpawnBlock : MonoBehaviour
 
     IEnumerator SpawnBlocks(){
         /* Type: 0 - block, 1 - bomb
-         * Color: 0 - red, 1 - blue
+         * Color: 0 - blue, 1 - red
          * Direction: 0 - up, 1 - down, 2 - left, 3 - right
          * Interval: 方块生成间隔时间
-         * PositionType: 0 - top left, 1 - top right, 2 - bottom left, 3 - bottom right
+         * PositionType: 0 - top right, 1 - top left, 2 - bottom left, 3 - bottom right
         */
         int rows = blockData.GetLength(0);
         for (int i = 0; i < rows; i++)

@@ -7,19 +7,28 @@ public class EnemyController : MonoBehaviour
 {
     public GameObject currentLeftObj;
     public GameObject currentRightObj;
-    public GameObject weaponBase;
-    public List<GameObject> weaponBox;
-    public GameObject currentWeapon;
+    public GameObject weaponLeftBase;
+    public GameObject weaponRightBase;
+    public List<GameObject> weaponLeftBox;
+    public List<GameObject> weaponRightBox;
+    public GameObject currentLeftWeapon;
+    public GameObject currentRightWeapon;
     public UISystem UIScript;
     public List<GameObject> leftObjList;
     public List<GameObject> rightObjList;
     // Start is called before the first frame update
     void Start()
     {
-        weaponBase.GetChildGameObjects(weaponBox);
-        foreach(GameObject wp in weaponBox){
+        weaponLeftBase.GetChildGameObjects(weaponLeftBox);
+        weaponRightBase.GetChildGameObjects(weaponRightBox);
+        foreach(GameObject wp in weaponLeftBox){
             if(wp.activeSelf){
-                currentWeapon = wp;
+                currentLeftWeapon = wp;
+            }
+        }
+        foreach(GameObject wp in weaponRightBox){
+            if(wp.activeSelf){
+                currentRightWeapon = wp;
             }
         }
     }

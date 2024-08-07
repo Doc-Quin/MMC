@@ -17,7 +17,7 @@ public class Bomb : MonoBehaviour
         ec = GameObject.Find("EnemyController"); 
         ecScript = ec.GetComponent<EnemyController>();
         UIScript = ecScript.UIScript;
-        playerWeapon = ecScript.currentWeapon;
+        playerWeapon = ecScript.currentLeftWeapon;
     }
 
     // Update is called once per frame
@@ -30,6 +30,7 @@ public class Bomb : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Triggered Burst!");
+        
         if(playerWeapon.name.Equals("Wand") || playerWeapon.name.Equals("Flail")){
             UIScript.setEnergyPoint(UIScript.energyPoint - 1, UIScript.maxEnergy);
             UIScript.setDynamicEnergySlider(UIScript.energyPoint, UIScript.maxEnergy);
