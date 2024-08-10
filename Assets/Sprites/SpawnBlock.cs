@@ -21,7 +21,7 @@ public class SpawnBlock : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {  
         enemyControllerTransform = GameObject.Find("EnemyController").transform;
 
         // 读取文件内容
