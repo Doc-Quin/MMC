@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -266,7 +266,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 163368065}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 632414822}
+        m_TargetAssemblyTypeName: WeaponChooseButton, Assembly-CSharp
+        m_MethodName: chooseDart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &163368065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,7 +399,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 257627138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 632414822}
+        m_TargetAssemblyTypeName: WeaponChooseButton, Assembly-CSharp
+        m_MethodName: chooseFlail
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &257627138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,7 +650,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 307473573}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 632414822}
+        m_TargetAssemblyTypeName: WeaponChooseButton, Assembly-CSharp
+        m_MethodName: chooseWand
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &307473573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,6 +844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 632414821}
+  - component: {fileID: 632414822}
   m_Layer: 0
   m_Name: WeaponChoice
   m_TagString: Untagged
@@ -835,6 +872,20 @@ Transform:
   - {fileID: 163368063}
   m_Father: {fileID: 1402955022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &632414822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632414820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b835d2135571f584394bfac27eb8fb53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponChoosePanel: {fileID: 632414820}
+  musicSheet: {fileID: 1150301059}
 --- !u!1 &727881015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,37 +1110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621c07db0fcddf844820de6480aacaf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &841794210
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 841794211}
-  m_Layer: 0
-  m_Name: 01Trigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &841794211
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841794210}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1655798411}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &904001054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,7 +1396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1109582212
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1640,13 +1660,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1150301060}
+  - component: {fileID: 1150301061}
   m_Layer: 0
   m_Name: MusicSheet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1150301060
 Transform:
   m_ObjectHideFlags: 0
@@ -1663,6 +1684,18 @@ Transform:
   - {fileID: 1655798411}
   m_Father: {fileID: 1402955022}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150301061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150301059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c538456a154d574e9b6b0b024595fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1249617917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,6 +1928,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fad03754c6c27b43b2d9e97814b7ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startButton: {fileID: 1109582211}
+  weaponChoice: {fileID: 632414820}
 --- !u!1 &1402955017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,7 +2270,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1595867468}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 632414822}
+        m_TargetAssemblyTypeName: WeaponChooseButton, Assembly-CSharp
+        m_MethodName: choosePistol
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1595867468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2356,7 +2403,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1609507409}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 632414822}
+        m_TargetAssemblyTypeName: WeaponChooseButton, Assembly-CSharp
+        m_MethodName: chooseLongSword
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1609507409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,7 +2619,6 @@ RectTransform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 841794211}
   - {fileID: 1130060427}
   m_Father: {fileID: 1150301060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2612,7 +2670,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1655798413}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1150301061}
+        m_TargetAssemblyTypeName: MusicChooseButton, Assembly-CSharp
+        m_MethodName: Send01
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1655798413
 MonoBehaviour:
   m_ObjectHideFlags: 0

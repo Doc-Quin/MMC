@@ -23,7 +23,10 @@ public class Bomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.z < 0.5f){Destroy(fatherGO);}
+        if(transform.position.z < 0.5f){
+            ecScript.blockNumber--;
+            Destroy(fatherGO);
+        }
 
     }
 
@@ -39,6 +42,7 @@ public class Bomb : MonoBehaviour
         UIScript.setHealthPoint(UIScript.healthPoint - 1, UIScript.maxHealth);
         UIScript.setDynamicHealth(UIScript.healthPoint);
         
+        ecScript.blockNumber--;
         Destroy(fatherGO);
     }
 }

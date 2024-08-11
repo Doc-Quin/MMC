@@ -42,7 +42,24 @@ public class Block : MonoBehaviour
             }
         }
 
-        WeaponName = playerLeftWeapon.name;
+        switch (PlayerSetData.weaponID)
+        {
+            case 0:
+                WeaponName = "Sword";
+                break;
+            case 1:
+                WeaponName = "Wand";
+                break;
+            case 2:
+                WeaponName = "Pistol";
+                break;
+            case 3:
+                WeaponName = "Flail";
+                break;
+            case 4:
+                WeaponName = "Dart";
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -52,6 +69,7 @@ public class Block : MonoBehaviour
             Debug.Log("Missed!"); 
             UIScript.setHealthPoint(UIScript.healthPoint - 1, UIScript.maxHealth);
             UIScript.setDynamicHealth(UIScript.healthPoint);
+            ecScript.blockNumber--;
             Destroy(fatherGO);
         }
     }
@@ -93,7 +111,8 @@ public class Block : MonoBehaviour
 
                         UIScript.setScorePoint(UIScript.scorePoint + 1);
                         UIScript.setDynamicScore(UIScript.scorePoint);
-                        
+
+                        ecScript.blockNumber--;
                         Destroy(fatherGO);
                     }
                     break;
@@ -109,7 +128,8 @@ public class Block : MonoBehaviour
                         UIScript.setScorePoint(UIScript.scorePoint + 1);
                         UIScript.setDynamicScore(UIScript.scorePoint);
 
-                        Destroy(fatherGO);;
+                        ecScript.blockNumber--;
+                        Destroy(fatherGO);
                     }
                     break;
                 }
@@ -123,7 +143,8 @@ public class Block : MonoBehaviour
 
                         UIScript.setScorePoint(UIScript.scorePoint + 1);
                         UIScript.setDynamicScore(UIScript.scorePoint);
-
+                        
+                        ecScript.blockNumber--;
                         Destroy(fatherGO);
                     }
                     break;
@@ -139,6 +160,7 @@ public class Block : MonoBehaviour
                         UIScript.setScorePoint(UIScript.scorePoint + 1);
                         UIScript.setDynamicScore(UIScript.scorePoint);
 
+                        ecScript.blockNumber--;
                         Destroy(fatherGO);
                     }
                     break;
@@ -149,6 +171,8 @@ public class Block : MonoBehaviour
         if(colliderType == 1 && UIScript.energyPoint == 2){
             UIScript.setEnergyPoint(UIScript.energyPoint + 1, UIScript.maxEnergy);
             UIScript.setDynamicEnergySlider(UIScript.energyPoint, UIScript.maxEnergy);
+
+            ecScript.blockNumber--;
             Destroy(fatherGO);
         }
 
@@ -157,6 +181,8 @@ public class Block : MonoBehaviour
             if(directionAttribute == other.GetComponent<DartSignal>().directionMessage){
                 UIScript.setScorePoint(UIScript.scorePoint + 1);
                 UIScript.setDynamicScore(UIScript.scorePoint);
+
+                ecScript.blockNumber--;
                 Destroy(fatherGO);
             }
         }

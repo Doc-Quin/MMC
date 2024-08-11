@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PistolRay : MonoBehaviour
 {
+    public EnemyController ecScript;
     public UISystem UIScript;
     public Block blockScript;
     public Bomb bombScript;
@@ -34,6 +35,8 @@ public class PistolRay : MonoBehaviour
                 if(playerInput.actions["PistolTrigger"].triggered){
                     UIScript.setScorePoint(UIScript.scorePoint + 1);
                     UIScript.setDynamicScore(UIScript.scorePoint);
+
+                    ecScript.blockNumber--;
                     Destroy(focusItem);
                 }
             }
@@ -44,6 +47,8 @@ public class PistolRay : MonoBehaviour
                 if(playerInput.actions["PistolTrigger"].triggered){
                     UIScript.setHealthPoint(UIScript.healthPoint - 1, UIScript.maxHealth);
                     UIScript.setDynamicHealth(UIScript.healthPoint);
+
+                    ecScript.blockNumber--;
                     Destroy(focusItem);
                 }
             }

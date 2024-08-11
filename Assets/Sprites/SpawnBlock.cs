@@ -24,35 +24,38 @@ public class SpawnBlock : MonoBehaviour
     {  
         enemyControllerTransform = GameObject.Find("EnemyController").transform;
 
-        // 读取文件内容
-        TextAsset file = Resources.Load<TextAsset>("data");
+        // Read File
+        TextAsset file = PlayerSetData.musicSheetDatafile;
         if (file != null)
         {
-            // 按行分割文件内容
+            // Split file into lines and columns
             string[] lines = file.text.Split(new[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries);
             int rows = lines.Length;
             int cols = lines[0].Split(',').Length;
 
-            // 创建二维数组
+            // create 2D array to store data
             blockData = new int[rows, cols];
 
-            // 解析文件内容并存储到二维数组中
+            // Loop through lines and columns
             for (int i = 0; i < rows; i++)
             {
-                // 去除可能的额外空格并按逗号分割
+                // Remove possible extra spaces and split on commas
                 string[] values = lines[i].Trim().Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
 
                 for (int j = 0; j < cols; j++)
                 {
                     int result;
-                    // 尝试解析为整数并存储到数组中，如果解析失败则抛出错误
+                    // Try to parse into an integer and store into an array, throw an error if parsing fails
                     if (int.TryParse(values[j].Trim(), out result))
                     {
                         blockData[i, j] = result;
                     }
                 }
             }
+            
+            ecScript.blockNumber = blockData.GetLength(0); 
         }
+
         StartCoroutine(SpawnBlocks());
     }
 
@@ -63,12 +66,14 @@ public class SpawnBlock : MonoBehaviour
     }
 
     IEnumerator SpawnBlocks(){
-        /* Type: 0 - block, 1 - bomb
+        /* 
+         * BlockType: 0 - block, 1 - bomb
          * Color: 0 - blue, 1 - red
          * Direction: 0 - up, 1 - down, 2 - left, 3 - right
-         * Interval: 方块生成间隔时间
+         * Interval: Block generation interval
          * PositionType: 0 - top right, 1 - top left, 2 - bottom left, 3 - bottom right
         */
+
         int rows = blockData.GetLength(0);
         for (int i = 0; i < rows; i++)
         {
@@ -107,10 +112,10 @@ public class SpawnBlock : MonoBehaviour
                 case 3: currentPosition = transform.position + new Vector3(-0.1f, -0.1f, 0); break;
             }
 
-            // 等待指定的时间间隔
+            // Wait for a specified time interval
             yield return new WaitForSeconds(currentInterval);
 
-            // 生成方块
+            // Generate Blocks
             GameObject newBlock = Instantiate(blockPrefab, currentPosition, Quaternion.identity, enemyControllerTransform);
 
             if(currentBlockType == 0){newBlock.transform.Find("Body").GetComponent<Block>().posType = currentPosType;}

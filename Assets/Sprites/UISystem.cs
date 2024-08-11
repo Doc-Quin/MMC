@@ -34,6 +34,10 @@ public class UISystem : MonoBehaviour
         public GameObject BackToMenu;
     #endregion
 
+    #region SuccessUI
+        public GameObject SuccessText;
+    #endregion
+
     void Start()
     {
         scorePoint = 0;
@@ -73,6 +77,14 @@ public class UISystem : MonoBehaviour
     }
     public void setDynamicHealth(int value){        
         dynamicHealth.GetComponent<TextMeshProUGUI>().text = value.ToString();  
+    }
+    #endregion
+
+    #region SuccessUI
+    public void showSuccessUI(){
+        EnemyController.SetActive(false);
+        SuccessText.SetActive(true);
+        BackToMenu.SetActive(true);
     }
     #endregion
 }

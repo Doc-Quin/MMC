@@ -45,7 +45,7 @@ public class wandInteraction : MonoBehaviour
     {
         if (playerInput.actions["StartDraw"].triggered && UIScript.energyPoint == 2)
         {
-            Debug.Log("开始绘制");
+            //Debug.Log("Start Drawing");
             isDrawing = true;
 
             lastPos = drawPostion.transform.position;
@@ -55,12 +55,12 @@ public class wandInteraction : MonoBehaviour
 
         if (playerInput.actions["EndDraw"].triggered && isDrawing)
         {
-            Debug.Log("结束绘制");
+            //Debug.Log("End Drawing");
             isDrawing = false;
 
             UpdateProjectionPlane();
 
-            // 检查是否符合Z字形
+            // Check if it complies with the Z shape
             if (CheckZShape(projectedPositions, 30f))
             {
                 Debug.Log("Trigger Spell Successfull.");
@@ -103,7 +103,7 @@ public class wandInteraction : MonoBehaviour
 
     private void UpdateProjectionPlane()
     {
-        // 使用摄像机的当前世界位置和朝向定义平面
+        // Defines a plane using the camera's current world position and orientation
         projectionPlane = new Plane(camera.transform.forward, drawPostion.transform.position);
         
         foreach (var point in drawPositions)
@@ -131,14 +131,14 @@ public class wandInteraction : MonoBehaviour
     {
         if (points.Count < 3)
         {
-            return false; // 至少需要三个点才能形成Z形
+            return false; // At least three points are needed to form a Z shape
         }
 
         int turnPoint = 0;
         double previousAngle = 0;
         bool initialAngleSet = false;
         Vector2 startPoint = points[0];
-        bool? lastTurnDirection = null; // 用于存储最后一次转向的方向，true表示右转，false表示左转
+        bool? lastTurnDirection = null; // Used to store the direction of the last turn, true means turn right, false means turn left
 
         for (int i = 1; i < points.Count; i++)
         {
@@ -147,7 +147,7 @@ public class wandInteraction : MonoBehaviour
             double slope;
             if (startPoint.x == currentPoint.x)
             {
-                slope = double.PositiveInfinity; // 处理垂直线的情况
+                slope = double.PositiveInfinity; // Handling vertical lines with 'N'
             }
             else
             {
@@ -168,19 +168,19 @@ public class wandInteraction : MonoBehaviour
 
             if (Math.Abs(angleDifference) > toleranceAngle)
             {
-                bool currentTurnDirection = angleDifference > 0; // true表示右转，false表示左转
+                bool currentTurnDirection = angleDifference > 0; // true means turn right, false means turn left
 
                 if (lastTurnDirection != null && lastTurnDirection == currentTurnDirection)
                 {
-                    // 如果连续两次转向方向相同，则不符合Z字形
+                    // If two consecutive turns are in the same direction, it does not conform to the Z-shape.
                     return false;
                 }
 
                 turnPoint++;
-                startPoint = currentPoint; // 更新起始点为转折点
+                startPoint = currentPoint; // Update the starting point to the turning point
                 previousAngle = angleDeg;
-                initialAngleSet = false; // 重新计算与新起始点的角度
-                lastTurnDirection = currentTurnDirection; // 记录当前转向方向
+                initialAngleSet = false; // Recalculate the angle with respect to the new starting point
+                lastTurnDirection = currentTurnDirection; // Record the current turning direction
             }
         }
 
@@ -193,13 +193,13 @@ public class wandInteraction : MonoBehaviour
         inFreeze = true;
         Time.timeScale = 0.1f;
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
-        Debug.Log($"时间缩放减少到: {Time.timeScale}");
+        //Debug.Log($"Time scaling is reduced to: {Time.timeScale}");
 
         yield return new WaitForSecondsRealtime(3);
 
         Time.timeScale = originalTimeScale;
         Time.fixedDeltaTime = originalFixedDeltaTime;
-        Debug.Log($"时间缩放重置为: {Time.timeScale}");
+        //Debug.Log($"Time scaling reset to: {Time.timeScale}");
 
         inFreeze = false;
     }

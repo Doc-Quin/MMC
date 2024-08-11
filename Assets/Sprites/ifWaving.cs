@@ -5,8 +5,8 @@ using UnityEngine;
 public class ifWaving : MonoBehaviour
 {
     public GameObject body;
-    public float thresholdSpeed = 3.0f; // 设定的速度阈值，超过此值认为是在挥砍
-    public float offsetThreshold; // 偏移阈值，小于此值认为无偏移方向
+    public float thresholdSpeed = 3.0f; // Set the speed threshold, exceeding which is considered as slashing
+    public float offsetThreshold; // Offset threshold, if the value is less than this value, it is considered that there is no offset direction
     private Vector3 lastPosition;
     private Vector3 currentVelocity;
     public bool inAttacking = false;
@@ -14,7 +14,7 @@ public class ifWaving : MonoBehaviour
     public bool attackRight = false;
     public bool attackUp = false;
     public bool attackDown = false;
-    public int offsetDirection = -1; // -1 表示无偏移方向，0-右上，1-左上，2-左下，3-右下
+    public int offsetDirection = -1; // -1 means no offset direction, 0-upper right, 1-upper left, 2-lower left, 3-lower right
 
     // Update is called once per frame
     void Start()
@@ -30,11 +30,11 @@ public class ifWaving : MonoBehaviour
 
     void Update()
     {
-        // 计算速度
+        // Calculate speed
         Vector3 currentPosition = body.transform.position;
         currentVelocity = (currentPosition - lastPosition) / Time.deltaTime;
 
-        // 判断速度是否超过阈值
+        // Determine whether the speed exceeds the threshold
         if (currentVelocity.magnitude > thresholdSpeed)
         {
             inAttacking = true;
@@ -47,21 +47,21 @@ public class ifWaving : MonoBehaviour
             attackUp = false;
             attackLeft = false;
             attackRight = false;
-            offsetDirection = -1; // 无偏移方向
+            offsetDirection = -1; // No offset direction
         }
 
-        // 更新上一次位置
+        // Update last location
         lastPosition = currentPosition;
     }
 
     private void DetermineSwingDirection(Vector3 velocity)
     {
-        // 屏幕空间的左右方向
+        // The left and right direction of the screen space
         float horizontalSpeed = Vector3.Dot(velocity, Camera.main.transform.right);
-        // 屏幕空间的上下方向
+        // Up and down direction in screen space
         float verticalSpeed = Vector3.Dot(velocity, Camera.main.transform.up);
 
-        // 判断主方向
+        // Determine the main direction
         if (Mathf.Abs(horizontalSpeed) > Mathf.Abs(verticalSpeed))
         {
             if (horizontalSpeed > 0)
@@ -97,30 +97,30 @@ public class ifWaving : MonoBehaviour
             }
         }
 
-        // 判断偏移方向
+        // Determine the offset direction
         if (Mathf.Abs(horizontalSpeed) < offsetThreshold && Mathf.Abs(verticalSpeed) < offsetThreshold)
         {
-            offsetDirection = -1; // 无偏移方向
+            offsetDirection = -1; // No offset direction
         }
         else if (horizontalSpeed > 0 && verticalSpeed > 0)
         {
-            offsetDirection = 0; // 右上
+            offsetDirection = 0; // Top right
         }
         else if (horizontalSpeed < 0 && verticalSpeed > 0)
         {
-            offsetDirection = 1; // 左上
+            offsetDirection = 1; // Top left
         }
         else if (horizontalSpeed < 0 && verticalSpeed < 0)
         {
-            offsetDirection = 2; // 左下
+            offsetDirection = 2; // Lower left
         }
         else if (horizontalSpeed > 0 && verticalSpeed < 0)
         {
-            offsetDirection = 3; // 右下
+            offsetDirection = 3; // Bottom right
         }
         else
         {
-            offsetDirection = -1; // 无偏移方向
+            offsetDirection = -1; // No offset direction
         }
     }
 }

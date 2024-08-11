@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
+    public GameObject startButton;
+    public GameObject weaponChoice;
     public void Jump(){
-        SceneManager.LoadScene(1);
+        startButton.SetActive(false);
+        weaponChoice.SetActive(true);
     }
 }
