@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class StartButton : MonoBehaviour
+public class CreditButton : MonoBehaviour
 {
     public GameObject startButton;
     public GameObject creditButton;
-    public GameObject weaponChoice;
-
-    public void Jump(){
+    public GameObject creditPanel;
+    public void triggerCredit(){
         startButton.SetActive(false);
         creditButton.SetActive(false);
-        weaponChoice.SetActive(true);
+        creditPanel.SetActive(true);
+        
     }
 }
