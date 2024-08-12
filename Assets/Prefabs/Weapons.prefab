@@ -568,8 +568,8 @@ MonoBehaviour:
   currentWeaponID: 0
   LongSword: {fileID: 1288091955968335601}
   Wand: {fileID: 8185294120116283716}
-  Flail: {fileID: 2708720192876044602}
   Pistol: {fileID: 9208094162743381477}
+  Flail: {fileID: 2708720192876044602}
   Dart: {fileID: 8914815963665254549}
 --- !u!1 &4764564876691747100
 GameObject:
@@ -1058,7 +1058,7 @@ GameObject:
   - component: {fileID: 4991374164089841928}
   m_Layer: 0
   m_Name: DartWeapon
-  m_TagString: Untagged
+  m_TagString: Dart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1290,6 +1290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f2a8164f8706e4c8817d54924d3f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ecScript: {fileID: 0}
   UIScript: {fileID: 0}
   blockScript: {fileID: 0}
   bombScript: {fileID: 0}

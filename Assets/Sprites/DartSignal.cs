@@ -10,9 +10,9 @@ public class DartSignal : MonoBehaviour
     public GameObject focusObject;
     public Rigidbody dartBody;
     public int directionMessage;
-    public float rotationSpeed; // 旋转速度
-    public float initialSpeed;    // 初始飞行速度
-    public float curveAmount;  // 弧线偏移量
+    public float rotationSpeed; // Rotation speed
+    public float initialSpeed;    // Initial flight speed
+    public float curveAmount;  // Arc offset
     public int offsetDirection;
     public Camera camera;
     public GameObject XRController;
@@ -24,7 +24,7 @@ public class DartSignal : MonoBehaviour
     {
         rotationSpeed = 100f;
         initialSpeed = 1.5f;
-        curveAmount = 0.5f; // 调整曲线偏移量
+        curveAmount = 0.5f; // Adjust the curve offset
         
         if(ifHit){
 
@@ -40,58 +40,58 @@ public class DartSignal : MonoBehaviour
         }
         
 
-        // 给予飞镖一个初始速度
+        // Gives the dart an initial velocity
         Vector3 initialDirection = camera.transform.forward;
         dartBody.velocity = initialDirection * initialSpeed;
 
-        // 根据 directionMessage 设置垂直速度
+        // Set the vertical speed according to directionMessage
         Vector3 verticalSpeed = Vector3.zero;
         switch (directionMessage)
         {
-            case 0: // 上
+            case 0: // up
                 verticalSpeed = camera.transform.up;
                 break;
-            case 1: // 下
+            case 1: // down
                 verticalSpeed = -camera.transform.up;
                 break;
-            case 2: // 左
+            case 2: // left
                 verticalSpeed = -camera.transform.right;
                 break;
-            case 3: // 右
+            case 3: // right
                 verticalSpeed = camera.transform.right;
                 break;
         }
 
-        // 给予飞镖一个较小的垂直速度
+        // Gives the dart a smaller vertical velocity
         dartBody.velocity += verticalSpeed * curveAmount * initialSpeed * 0.3f;
 
-        // 获取偏移方向速度
+        // Get the speed in the offset direction
         Vector3 offsetDir = Vector3.zero;
         switch (offsetDirection)
         {
-            case 0: // 右上
+            case 0: // Top right
                 offsetDir = camera.transform.up + camera.transform.right;
-                // 沿Z轴逆时针旋转45度
+                // Rotate 45 degrees counterclockwise along the Z axis
                 transform.Rotate(0, 0, 45f);
                 break;
-            case 1: // 左上
+            case 1: // Top left
                 offsetDir = camera.transform.up - camera.transform.right;
                 transform.Rotate(0, 0, -45f);
                 break;
-            case 2: // 左下
+            case 2: // Lower left
                 offsetDir = -camera.transform.up - camera.transform.right;
                 transform.Rotate(0, 0, 45f);
                 break;
-            case 3: // 右下
+            case 3: // Bottom right
                 offsetDir = -camera.transform.up + camera.transform.right;
                 transform.Rotate(0, 0, -45f);
                 break;
         }
         
-        // 冻结刚体的Z轴旋转
+        // Freeze the Z rotation of a rigid body
         dartBody.constraints = RigidbodyConstraints.FreezeRotationZ;
 
-        // 给予飞镖一个较小的偏移方向的速度
+        // Gives the dart a small offset in the direction of the velocity
         dartBody.velocity += offsetDir.normalized * initialSpeed * curveAmount * 0.3f;
     }
 
@@ -100,19 +100,19 @@ public class DartSignal : MonoBehaviour
     {
         if(dartBody != null){
 
-            // 获取旋转后的 up 方向
+            // Gives the dart a small offset in the direction of the velocity
             Vector3 rotatedUp = transform.TransformDirection(Vector3.up);
         
-            // 添加扭矩
+            // Adding Torque
             dartBody.AddTorque(rotatedUp * rotationSpeed * Time.deltaTime, ForceMode.VelocityChange);
 
             if(focusObject != null){
 
                 focusPos = focusObject.transform.position;
-                // 计算飞向目标的方向
+                // Calculate the direction to the target
                 Vector3 directionToTarget = (focusObject.transform.position - transform.position).normalized;
 
-                // 逐渐调整飞镖的速度，以跟踪目标物体
+                // Gradually adjust the speed of the dart to track the target object
                 Vector3 newVelocity = Vector3.Lerp(dartBody.velocity, directionToTarget * initialSpeed, Time.deltaTime * 4); // Fast lerp speed.
                 dartBody.velocity = newVelocity;
             }else{

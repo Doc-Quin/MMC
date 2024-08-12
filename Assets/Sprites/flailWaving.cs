@@ -11,8 +11,8 @@ public class flailWaving : MonoBehaviour
     public ifWaving wavingScript;
     public UISystem UIScript;
     public float moveSpeed = 1.0f;
-    public float swingDistance;  // 往复运动的距离
-    private bool isSwinging = false;  // 防止协程重复启动
+    public float swingDistance;  // Distance of reciprocating motion
+    private bool isSwinging = false;  // Preventing Coroutines from Starting Again
     public GameObject backPoint;
     public Vector3 localStartPosition;
     public Vector3 localEndPosition;

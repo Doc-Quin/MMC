@@ -32,16 +32,16 @@ public class Bomb : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered Burst!");
-        
+        //Debug.Log("Triggered Burst!" + " " + other.tag + " " + other.name);
+            
         if(playerWeapon.name.Equals("Wand") || playerWeapon.name.Equals("Flail")){
             UIScript.setEnergyPoint(UIScript.energyPoint - 1, UIScript.maxEnergy);
             UIScript.setDynamicEnergySlider(UIScript.energyPoint, UIScript.maxEnergy);
         }
 
         UIScript.setHealthPoint(UIScript.healthPoint - 1, UIScript.maxHealth);
-        UIScript.setDynamicHealth(UIScript.healthPoint);
-        
+        UIScript.setDynamicHealth(UIScript.healthPoint); 
+            
         ecScript.blockNumber--;
         Destroy(fatherGO);
     }

@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 8766614596309149135}
   m_Layer: 0
   m_Name: BlueRightBlock
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 3303983438909199925}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -476,11 +476,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c5affcf2aeacd4c916a665fdf40315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wavingScript: {fileID: 0}
+  wavingLeftScript: {fileID: 0}
+  wavingRightScript: {fileID: 0}
   UIScript: {fileID: 0}
-  playerWeapon: {fileID: 0}
+  playerLeftWeapon: {fileID: 0}
+  playerRightWeapon: {fileID: 0}
   ec: {fileID: 0}
   ecScript: {fileID: 0}
   fatherGO: {fileID: 1915408596552237898}
   directionAttribute: 3
   posType: 0
+  WeaponName: 

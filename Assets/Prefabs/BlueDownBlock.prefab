@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 7132423560051787106}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,14 +180,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c5affcf2aeacd4c916a665fdf40315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wavingScript: {fileID: 0}
+  wavingLeftScript: {fileID: 0}
+  wavingRightScript: {fileID: 0}
   UIScript: {fileID: 0}
-  playerWeapon: {fileID: 0}
+  playerLeftWeapon: {fileID: 0}
+  playerRightWeapon: {fileID: 0}
   ec: {fileID: 0}
   ecScript: {fileID: 0}
   fatherGO: {fileID: 3832891680845105451}
   directionAttribute: 1
   posType: 0
+  WeaponName: 
 --- !u!1 &3226843021655942154
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,7 +369,7 @@ GameObject:
   - component: {fileID: 3102310661309488659}
   m_Layer: 0
   m_Name: BlueDownBlock
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

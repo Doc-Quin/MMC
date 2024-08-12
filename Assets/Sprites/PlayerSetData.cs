@@ -7,4 +7,5 @@ public class PlayerSetData : MonoBehaviour
 {
     public static int weaponID;
     public static TextAsset musicSheetDatafile;
+    public static AudioClip musicFile;
 }

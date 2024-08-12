@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using Unity.PlasticSCM.Editor.WebApi;
+//using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting;
 
 public class SpawnBlock : MonoBehaviour
 {
     public GameObject[] Blocks = new GameObject[9];
-    public int[,] blockData;
+    public float[,] blockData;
     public GameObject blockPrefab;
     public int currentBlockType;
     public int currentBlockColor;
@@ -34,7 +34,7 @@ public class SpawnBlock : MonoBehaviour
             int cols = lines[0].Split(',').Length;
 
             // create 2D array to store data
-            blockData = new int[rows, cols];
+            blockData = new float[rows, cols];
 
             // Loop through lines and columns
             for (int i = 0; i < rows; i++)
@@ -44,9 +44,9 @@ public class SpawnBlock : MonoBehaviour
 
                 for (int j = 0; j < cols; j++)
                 {
-                    int result;
+                    float result;
                     // Try to parse into an integer and store into an array, throw an error if parsing fails
-                    if (int.TryParse(values[j].Trim(), out result))
+                    if (float.TryParse(values[j].Trim(), out result))
                     {
                         blockData[i, j] = result;
                     }
@@ -77,11 +77,11 @@ public class SpawnBlock : MonoBehaviour
         int rows = blockData.GetLength(0);
         for (int i = 0; i < rows; i++)
         {
-            currentBlockType = blockData[i, 0];
-            currentBlockColor = blockData[i, 1];
-            currentBlockDirection = blockData[i, 2];
+            currentBlockType = (int)blockData[i, 0];
+            currentBlockColor = (int)blockData[i, 1];
+            currentBlockDirection = (int)blockData[i, 2];
             currentInterval = blockData[i, 3];
-            currentPosType = blockData[i, 4];
+            currentPosType = (int)blockData[i, 4];
 
             if(currentBlockType == 0 && currentBlockColor == 0){
                 switch(currentBlockDirection){
@@ -113,6 +113,7 @@ public class SpawnBlock : MonoBehaviour
             }
 
             // Wait for a specified time interval
+            //Debug.Log("Spawning Block:" + currentInterval);
             yield return new WaitForSeconds(currentInterval);
 
             // Generate Blocks

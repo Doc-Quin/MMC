@@ -40,6 +40,7 @@ public class UISystem : MonoBehaviour
 
     void Start()
     {
+        healthPoint = 30;
         scorePoint = 0;
         setDynamicScore(scorePoint);
         setHealthPoint(healthPoint, maxHealth);

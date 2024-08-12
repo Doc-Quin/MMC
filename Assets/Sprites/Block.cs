@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Block : MonoBehaviour
@@ -66,7 +66,7 @@ public class Block : MonoBehaviour
     void Update()
     {
         if(transform.position.z < 0.3f){
-            Debug.Log("Missed!"); 
+            //Debug.Log("Missed!"); 
             UIScript.setHealthPoint(UIScript.healthPoint - 1, UIScript.maxHealth);
             UIScript.setDynamicHealth(UIScript.healthPoint);
             ecScript.blockNumber--;
@@ -177,7 +177,7 @@ public class Block : MonoBehaviour
         }
 
         if(colliderType == 2 && other.gameObject.tag.Equals("Dart")){
-            Debug.Log("Dart collided with " + other.gameObject.name);
+            //Debug.Log("Dart collided with " + other.gameObject.name);
             if(directionAttribute == other.GetComponent<DartSignal>().directionMessage){
                 UIScript.setScorePoint(UIScript.scorePoint + 1);
                 UIScript.setDynamicScore(UIScript.scorePoint);
