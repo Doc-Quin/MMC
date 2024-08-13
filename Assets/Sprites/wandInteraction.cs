@@ -26,7 +26,6 @@ public class wandInteraction : MonoBehaviour
     public bool inFreeze = false;
     public UISystem UIScript;
     
-
     void Start()
     {
         originalTimeScale = Time.timeScale;

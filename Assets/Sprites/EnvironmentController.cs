@@ -8,7 +8,7 @@ public class EnvironmentController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(PlayMusicWithDelay(4.5f));
+        StartCoroutine(PlayMusicWithDelay(5f));
     }
 
     IEnumerator PlayMusicWithDelay(float delay)
