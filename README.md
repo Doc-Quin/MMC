@@ -1,0 +1,1 @@
+This project is a thesis research based on the gameplay of the Beat Saber game. The project is developed using Unity and utilizes the XR toolkit. The commits for the project are synchronized with both GitHub and GitLab.
