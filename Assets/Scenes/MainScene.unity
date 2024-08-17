@@ -2140,8 +2140,8 @@ MonoBehaviour:
   scorePoint: 0
   healthName: {fileID: 2134746341}
   dynamicHealth: {fileID: 853719957}
-  healthPoint: 30
-  maxHealth: 30
+  healthPoint: 15
+  maxHealth: 15
   FailText: {fileID: 239552675}
   BackToMenu: {fileID: 230531966}
   SuccessText: {fileID: 78894176}
@@ -2205,7 +2205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
