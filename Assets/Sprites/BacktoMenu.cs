@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class BacktoMenu : MonoBehaviour
 {
     public void Jump(){
+        EnvironmentController.isPaused = false;
         SceneManager.LoadScene(0);
     }
 }

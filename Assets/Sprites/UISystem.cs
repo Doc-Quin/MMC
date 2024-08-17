@@ -38,6 +38,10 @@ public class UISystem : MonoBehaviour
         public GameObject SuccessText;
     #endregion
 
+    #region PauseUI
+        public GameObject PauseText;
+    #endregion
+
     void Start()
     {
         scorePoint = 0;
@@ -85,6 +89,18 @@ public class UISystem : MonoBehaviour
         EnemyController.SetActive(false);
         SuccessText.SetActive(true);
         BackToMenu.SetActive(true);
+    }
+    #endregion
+
+    #region PauseUI
+    public void showPauseUI(){
+        PauseText.SetActive(true);
+        BackToMenu.SetActive(true);
+    }
+
+    public void hidePauseUI(){
+        PauseText.SetActive(false);
+        BackToMenu.SetActive(false);
     }
     #endregion
 }

@@ -11,10 +11,12 @@ public class PistolRay : MonoBehaviour
     public Bomb bombScript;
     public PlayerInput playerInput;
     public GameObject focusItem;
+    public WeaponReader weaponScript;
     // Start is called before the first frame update
     void Start()
     {
-        
+        UIScript = weaponScript.UIScript;
+        playerInput = weaponScript.playerInput;   
     }
 
     // Update is called once per frame

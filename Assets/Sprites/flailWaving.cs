@@ -17,10 +17,14 @@ public class flailWaving : MonoBehaviour
     public Vector3 localStartPosition;
     public Vector3 localEndPosition;
     public PlayerInput playerInput;
+    public WeaponReader weaponScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        UIScript = weaponScript.UIScript;
+        playerInput = weaponScript.playerInput;  
+        
         localStartPosition = backPoint.transform.position;
         localEndPosition = new Vector3(localStartPosition.x, localStartPosition.y, localStartPosition.z + swingDistance);
         UIScript.energyName.SetActive(true);

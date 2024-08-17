@@ -25,9 +25,13 @@ public class wandInteraction : MonoBehaviour
     private float originalFixedDeltaTime;
     public bool inFreeze = false;
     public UISystem UIScript;
+    public WeaponReader weaponScript;
     
     void Start()
     {
+        UIScript = weaponScript.UIScript;
+        playerInput = weaponScript.playerInput;
+        
         originalTimeScale = Time.timeScale;
         originalFixedDeltaTime = Time.fixedDeltaTime;
         line = new GameObject().AddComponent<LineRenderer>();
@@ -62,7 +66,7 @@ public class wandInteraction : MonoBehaviour
             // Check if it complies with the Z shape
             if (CheckZShape(projectedPositions, 30f))
             {
-                Debug.Log("Trigger Spell Successfull.");
+                //Debug.Log("Trigger Spell Successfull.");
                 
                 if (!inFreeze) {
                     StartCoroutine(slowTimeSpell()); 
@@ -72,7 +76,7 @@ public class wandInteraction : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Trigger Spell Failed.");
+                //Debug.LogError("Trigger Spell Failed.");
             }
 
             drawPositions.Clear();

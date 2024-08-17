@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponReader : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class WeaponReader : MonoBehaviour
     public GameObject Pistol;
     public GameObject Flail;
     public GameObject Dart;
+    public PlayerInput playerInput;
+    public UISystem UIScript;   
 
     void Start(){
         currentWeaponID = PlayerSetData.weaponID;

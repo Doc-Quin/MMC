@@ -77,6 +77,11 @@ public class SpawnBlock : MonoBehaviour
         int rows = blockData.GetLength(0);
         for (int i = 0; i < rows; i++)
         {
+            while (EnvironmentController.isPaused)
+            {
+                yield return null; // Pause the game if it is paused
+            }
+            
             currentBlockType = (int)blockData[i, 0];
             currentBlockColor = (int)blockData[i, 1];
             currentBlockDirection = (int)blockData[i, 2];

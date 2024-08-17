@@ -273,7 +273,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2208143277904098439}
-  - component: {fileID: 3701402249302992604}
   - component: {fileID: 1846744502427200552}
   - component: {fileID: 7576390698957572941}
   m_Layer: 0
@@ -301,72 +300,6 @@ Transform:
   - {fileID: 1605977974216361437}
   m_Father: {fileID: 5977767695420531992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3701402249302992604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2708720192876044602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f339dfe468ce2bb4989eca247b63b2db, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2708720192876044602}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 09563faa-9ea0-4c44-8524-f153190f836d
-    m_ActionName: Player/StartDraw
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2708720192876044602}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: c202df0f-0201-49e4-8bcf-180fb639b33c
-    m_ActionName: Player/EndDraw
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 76ba5d6d-1b5f-4519-99f0-bf64420dbb7a
-    m_ActionName: Player/PistolTrigger
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &1846744502427200552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,7 +322,8 @@ MonoBehaviour:
   backPoint: {fileID: 8420648628984216860}
   localStartPosition: {x: 0, y: 0, z: 0}
   localEndPosition: {x: 0, y: 0, z: 0}
-  playerInput: {fileID: 3701402249302992604}
+  playerInput: {fileID: 0}
+  weaponScript: {fileID: 2579541668161823525}
 --- !u!114 &7576390698957572941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +505,8 @@ MonoBehaviour:
   Pistol: {fileID: 9208094162743381477}
   Flail: {fileID: 2708720192876044602}
   Dart: {fileID: 8914815963665254549}
+  playerInput: {fileID: 0}
+  UIScript: {fileID: 0}
 --- !u!1 &4764564876691747100
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +816,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2264082775885745696}
-  - component: {fileID: 5756890376459092026}
   - component: {fileID: 686240315967385072}
   - component: {fileID: 2084076528185886584}
   m_Layer: 0
@@ -907,72 +842,6 @@ Transform:
   - {fileID: 5735492864553548848}
   m_Father: {fileID: 5977767695420531992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5756890376459092026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8185294120116283716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f339dfe468ce2bb4989eca247b63b2db, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8185294120116283716}
-        m_TargetAssemblyTypeName: DrawInteraction, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 09563faa-9ea0-4c44-8524-f153190f836d
-    m_ActionName: Player/StartDraw
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8185294120116283716}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: 
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: c202df0f-0201-49e4-8bcf-180fb639b33c
-    m_ActionName: Player/EndDraw
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 76ba5d6d-1b5f-4519-99f0-bf64420dbb7a
-    m_ActionName: Player/PistolTrigger
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &686240315967385072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,9 +858,10 @@ MonoBehaviour:
   drawPostion: {fileID: 5583376332507593244}
   camera: {fileID: 0}
   mat: {fileID: 2100000, guid: 6252b551806ea8940a1613d21e68a460, type: 2}
-  playerInput: {fileID: 5756890376459092026}
+  playerInput: {fileID: 0}
   inFreeze: 0
   UIScript: {fileID: 0}
+  weaponScript: {fileID: 2579541668161823525}
 --- !u!114 &2084076528185886584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1053,7 +923,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4219594519528542778}
-  - component: {fileID: 3860197395270152275}
   - component: {fileID: 7614591002956437473}
   - component: {fileID: 4991374164089841928}
   m_Layer: 0
@@ -1079,72 +948,6 @@ Transform:
   - {fileID: 783651030222341448}
   m_Father: {fileID: 5977767695420531992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3860197395270152275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8914815963665254549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f339dfe468ce2bb4989eca247b63b2db, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8914815963665254549}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 09563faa-9ea0-4c44-8524-f153190f836d
-    m_ActionName: Player/StartDraw
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8914815963665254549}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: c202df0f-0201-49e4-8bcf-180fb639b33c
-    m_ActionName: Player/EndDraw
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 76ba5d6d-1b5f-4519-99f0-bf64420dbb7a
-    m_ActionName: Player/PistolTrigger
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &7614591002956437473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1186,10 +989,11 @@ MonoBehaviour:
   spawnBlockScript: {fileID: 0}
   wavingScrpit: {fileID: 7614591002956437473}
   dartPrefab: {fileID: 2868527410655442484, guid: 547c8f40df1a89047b8e62dfed4eb9d5, type: 3}
-  playerInput: {fileID: 3860197395270152275}
+  playerInput: {fileID: 0}
   isShooting: 0
   isBorned: 1
   ecScript: {fileID: 0}
+  weaponScript: {fileID: 2579541668161823525}
 --- !u!1 &9208094162743381477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,7 +1003,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4015988519511663484}
-  - component: {fileID: 6176502442635059849}
   - component: {fileID: 6128005658947900595}
   m_Layer: 0
   m_Name: Pistol
@@ -1224,60 +1027,6 @@ Transform:
   - {fileID: 9017945529139488630}
   m_Father: {fileID: 5977767695420531992}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6176502442635059849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9208094162743381477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f339dfe468ce2bb4989eca247b63b2db, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 09563faa-9ea0-4c44-8524-f153190f836d
-    m_ActionName: Player/StartDraw
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c202df0f-0201-49e4-8bcf-180fb639b33c
-    m_ActionName: Player/EndDraw
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9208094162743381477}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 76ba5d6d-1b5f-4519-99f0-bf64420dbb7a
-    m_ActionName: Player/PistolTrigger
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &6128005658947900595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1294,5 +1043,6 @@ MonoBehaviour:
   UIScript: {fileID: 0}
   blockScript: {fileID: 0}
   bombScript: {fileID: 0}
-  playerInput: {fileID: 6176502442635059849}
+  playerInput: {fileID: 0}
   focusItem: {fileID: 0}
+  weaponScript: {fileID: 2579541668161823525}

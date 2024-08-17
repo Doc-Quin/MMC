@@ -17,11 +17,12 @@ public class DartController : MonoBehaviour
     public bool isShooting = false;
     public bool isBorned = false;
     public EnemyController ecScript;
+    public WeaponReader weaponScript;
 
     // Start is called before the first frame update
     void Start()
-    {
-
+    {;
+        playerInput = weaponScript.playerInput;
     }
 
     // Update is called once per frame

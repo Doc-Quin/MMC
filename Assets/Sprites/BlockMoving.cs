@@ -17,6 +17,10 @@ public class BlockMoving : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(EnvironmentController.isPaused){
+            return;
+        }
+        
         transform.Translate(Vector3.forward * movespeed * Time.fixedDeltaTime);
     }
 
